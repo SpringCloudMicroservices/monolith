@@ -13,7 +13,7 @@ const MOVIE_LISTS = ["Comedy", "Adventure", "Crime", "Drama"];
 @Component({
   selector: 'movie-boxes',
   template: `
-    <div><a href="" (click)="logout()">Logout</a></div>
+    <div id="sub-navigation"><a href="" (click)="logout()">Logout</a></div>
     <template ngFor let-box [ngForOf]="boxes">
       <movie-box [box]="box"></movie-box>      
     </template>    
