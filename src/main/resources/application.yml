@@ -1,0 +1,11 @@
+spring.application.name: movies
+server.port: 3000
+security.basic.enabled: false
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      database: movies
+
+jwt.secret.key: m0vi3s@pp

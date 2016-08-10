@@ -1,0 +1,57 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:latest.release'
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'docker'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+    baseName = 'monolith'
+    version =  '1.0-SNAPSHOT'
+}
+
+task stage {
+    dependsOn build
+}
+
+task buildDocker(type: Docker, dependsOn: build) {
+    applicationName = jar.baseName
+    dockerfile = file('src/main/docker/Dockerfile')
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+
+    compile 'javax.inject:javax.inject:1'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+    compile 'io.jsonwebtoken:jjwt:0.6.0'
+
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    //compile 'org.springframework.data:spring-data-commons:1.12.1.RELEASE' // must use 1.12.1 for neo4j
+
+    compile 'org.projectlombok:lombok:latest.release'
+}

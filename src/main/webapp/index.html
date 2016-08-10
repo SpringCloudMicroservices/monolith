@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>Movie Hunter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <base href="/" />
+    <!--[if IE 6]>
+    <link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" />
+    <![endif]-->
+
+    <!-- 1. Load libraries -->
+     <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+</head>
+
+<!-- 3. Display the application -->
+<body>
+    <!-- Shell -->
+    <div id="shell">
+        <!-- Header -->
+        <div id="header">
+            <h1 id="logo"><a href="/">Movie Hunter</a></h1>
+            <div class="social">
+                <span>FOLLOW US ON:</span>
+                <ul>
+                    <li><a class="twitter" href="#">twitter</a></li>
+                    <li><a class="facebook" href="#">facebook</a></li>
+                    <li><a class="vimeo" href="#">vimeo</a></li>
+                    <li><a class="rss" href="#">rss</a></li>
+                </ul>
+            </div>
+
+            <!-- Navigation -->
+            <div id="navigation">
+                <ul>
+                    <!--<li><a href="#/login">LOGOUT</a></li>                    -->
+                </ul>
+            </div>
+            <!-- end Navigation -->
+
+            <!-- Sub-menu -->
+            <div id="sub-navigation">
+                <!--<ul>
+                    <li><a href="#">SHOW ALL</a></li>
+                    <li><a href="#">RECOMMENDED</a></li>
+                    <li><a href="#">FAMILY</a></li>
+                    <li><a href="#">ACTION</a></li>
+                </ul>
+                <div id="search">
+                    <form action="home_submit" method="get" accept-charset="utf-8">
+                        <label for="search-field">SEARCH</label>
+                        <input type="text" name="search field" value="Enter search here" id="search-field" title="Enter search here" class="blink search-field"  />
+                        <input type="submit" value="GO!" class="search-button" />
+                    </form>
+                </div>-->
+            </div>
+            <!-- end Sub-Menu -->
+
+        </div>
+        <!-- end Header -->
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Content -->
+            <div id="content">
+                <movies-app></movies-app>                                
+            </div>
+            <!-- end Content -->            
+            <div class="cl">&nbsp;</div>
+        </div>
+        <!-- end Main -->
+
+        <!-- Footer -->
+        <div id="footer">
+            <!--<p>
+                <a href="#">HOME</a> <span>|</span>
+                <a href="#">NEWS</a> <span>|</span>
+                <a href="#">IN THEATERS</a> <span>|</span>
+                <a href="#">COMING SOON </a> <span>|</span>
+                <a href="#">LATERS TRAILERS</a> <span>|</span>
+                <a href="#">TOP RATED TRAILERS</a> <span>|</span>
+                <a href="#">MOST COMMENTED TRAILERS</a> <span>|</span>
+                <a href="#">ADVERTISE</a> <span>|</span>
+                <a href="#">CONTACT </a>
+            </p>-->
+            <p> &copy; 2009 Movie Hunter, LLC. All Rights Reserved.  Designed by <a href="http://chocotemplates.com" target="_blank" title="The Sweetest CSS Templates WorldWide">ChocoTemplates.com</a></p>
+        </div>
+        <!-- end Footer -->
+    </div>
+    <!-- end Shell -->
+
+</body>
+
+</html>
